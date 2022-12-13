@@ -1,30 +1,31 @@
 package oopseminar4.service;
 
-import java.util.Queue;
-import java.util.PriorityQueue;
+import java.util.ArrayList;
+import java.util.List;
 import oopseminar4.data.Event;;
 
 public class EventService {
-    //
-    private Queue<Event> tasks;
+    //Лист Задач
+    private List<Event> tasks;
     
 
     //Constructor EventService
     public EventService(){
-        this.tasks = new PriorityQueue<>();
+        this.tasks = new ArrayList<>();
 
     }
 
 
-    public Queue<Event> getTasks() {
+    public List<Event> getTasks() {
         return this.tasks;
     }
 
 
-    public void setTasks(Queue<Event> importantTasks) {
+    public void setTasks(List<Event> importantTasks) {
         this.tasks = importantTasks;
     }
     
+    //Добавить событие в Лист задач.
     public void addNewTask(Event newTask){
         getTasks().add(newTask);
     }

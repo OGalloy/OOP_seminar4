@@ -11,7 +11,7 @@
 
 
 package oopseminar4.data;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Event implements Comparable<Event>{
     
@@ -19,12 +19,17 @@ public class Event implements Comparable<Event>{
     private String task;
     private Integer priority;
     private Integer id;
-    private Date deadLine;
+    private LocalDateTime actualDate = LocalDateTime.now();
+    private LocalDateTime deadLine;
     private String autor;
 
     
     //Конструктор класса Event
-    public Event(String task, Integer priority, Integer id, Date deadLIne, String autor) {
+    public Event(String task,
+                Integer priority,
+                Integer id,
+                LocalDateTime deadLIne,
+                String autor) {
         this.task = task;
         this.priority = priority;
         this.id = id;
@@ -54,11 +59,20 @@ public class Event implements Comparable<Event>{
         this.id = id;
     }
 
-    public Date getDeadLine() {
+    public LocalDateTime getDeadLine() {
         return deadLine;
     }
 
-    public void setDeadLine(Date deadLine) {
+
+    public LocalDateTime getActualDate() {
+        return actualDate;
+    }
+
+    public void setActualDate(LocalDateTime actualDate) {
+        this.actualDate = actualDate;
+    }
+
+    public void setDeadLine(LocalDateTime deadLine) {
         this.deadLine = deadLine;
     }
 
@@ -75,6 +89,11 @@ public class Event implements Comparable<Event>{
     public int compareTo(Event o) {
         
         return this.getPriority().compareTo(o.getPriority());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s, Time: %s, Priority: %d", this.task, this.actualDate, this.priority);
     }
 
     
