@@ -20,5 +20,6 @@ public class App {
         controller.createNewTask(event3);
         controller.createNewTask(event2);
         controller.createNewTask(event1);
+        controller.importTasksFromFile("foo.csv");
     }
 }
